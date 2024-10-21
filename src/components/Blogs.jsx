@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import PropTypes from "prop-types";
+import Blog from "./Blog";
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([])
@@ -16,44 +16,20 @@ const Blogs = () => {
                     blogs.map(blog => <Blog key={blog.id} blog={blog}></Blog>)
                 }
             </div>
+
             <div className="w-[40%]">
+                <hr className="my-8" />
+                <h2 className="py-5 bg-secondary/10 px-8 rounded-lg text-secondary text-2xl font-bold border border-solid border-secondary">Spent time on read : 177 min</h2>
+                <div className="bg-[#1111110d] p-[30px] mt-6 rounded-lg">
+                <h3 className="text-primary font-bold text-2xl">Bookmarked Blogs : 8</h3>
+                
+                <div className="">
 
+                </div>
+                </div>
             </div>
         </div>
     );
 };
-
-const Blog = ({ blog }) => {
-    const { cover, title, author_img, author, posted_date, reading_time, hashtags } = blog
-    return (
-        <div>
-            <img src={cover} alt="" />
-            <div className="flex justify-between">
-                <div className="flex gap-4">
-                    <div>
-                        <img className="w-[60px]" src={author_img} alt="" />
-                    </div>
-                    <div>
-                        <h3>Name</h3>
-                        <p>Publish Date</p>
-                    </div>
-                </div>
-                <div>
-                    bookmarks
-                </div>
-            </div>
-            <h2>Title</h2>
-            <div className="flex gap-6">
-                <p>tags</p>
-                <p>tags</p>
-            </div>
-            <p><a href="#">Read as Mark</a></p>
-        </div>
-    );
-};
-
-Blog.propTypes = {
-    blog: PropTypes.object.isRequired
-}
 
 export default Blogs;
