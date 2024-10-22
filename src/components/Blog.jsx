@@ -1,7 +1,7 @@
 
 import PropTypes from "prop-types";
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, handelBookmarked, handelReadAsMark }) => {
     const { cover, title, author_img, author, posted_date, reading_time, hashtags } = blog
     return (
         <>
@@ -19,7 +19,7 @@ const Blog = ({ blog }) => {
                         </div>
                     </div>
                     <div>
-                        <p className="text-primary/60 font-bold">{reading_time} min read <i className="fa-regular fa-bookmark cursor-pointer"></i></p>
+                        <p className="text-primary/60 font-bold">{reading_time} min read <i onClick={() => handelBookmarked(blog)} className="fa-regular fa-bookmark cursor-pointer text-2xl text-secondary"></i></p>
                     </div>
                 </div>
                 <h2 className="text-primary font-bold text-4xl mt-[18px]">{title}</h2>
@@ -27,14 +27,16 @@ const Blog = ({ blog }) => {
                     <p className="text-primary/60 font-semibold">#{hashtags[0]}</p>
                     <p className="text-primary/60 font-semibold">#{hashtags[1]}</p>
                 </div>
-                <p className="text-xl text-secondary underline font-semibold mt-5"><a href="#">Read as Mark</a></p>
+                <p onClick={() => handelReadAsMark(reading_time)} className="text-xl text-secondary underline font-semibold mt-5 cursor-pointer">Read as Mark</p>
             </div>
         </>
     );
 };
 
 Blog.propTypes = {
-    blog: PropTypes.object.isRequired
+    blog: PropTypes.object.isRequired,
+    handelBookmarked: PropTypes.func.isRequired,
+    handelReadAsMark: PropTypes.func.isRequired,
 }
 
 export default Blog
