@@ -19,8 +19,11 @@ const Blogs = () => {
         setBookmarked(newBlog)
     }
 
-    const handelReadAsMark = times => {
+    const handelReadAsMark = (id, times) => {
         setTime(time + times)
+        console.log("remove as", id);
+        const remainingBookmark = bookmarked.filter(bookmark => bookmark.id !== id)
+        setBookmarked(remainingBookmark)
     }
     return (
         <div className="flex gap-4">

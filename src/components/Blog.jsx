@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 
 const Blog = ({ blog, handelBookmarked, handelReadAsMark }) => {
-    const { cover, title, author_img, author, posted_date, reading_time, hashtags } = blog
+    const { id, cover, title, author_img, author, posted_date, reading_time, hashtags } = blog
     return (
         <>
             <hr className="my-8" />
@@ -27,7 +27,7 @@ const Blog = ({ blog, handelBookmarked, handelReadAsMark }) => {
                     <p className="text-primary/60 font-semibold">#{hashtags[0]}</p>
                     <p className="text-primary/60 font-semibold">#{hashtags[1]}</p>
                 </div>
-                <p onClick={() => handelReadAsMark(reading_time)} className="text-xl text-secondary underline font-semibold mt-5 cursor-pointer">Read as Mark</p>
+                <p onClick={() => handelReadAsMark(id, reading_time)} className="text-xl text-secondary underline font-semibold mt-5 cursor-pointer">Read as Mark</p>
             </div>
         </>
     );
